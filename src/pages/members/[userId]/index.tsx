@@ -5,7 +5,6 @@ import { useState } from "react";
 
 
 const Page: NextPage = () => {
-    const [currentTab, setCurrentTab] = useState<string>('details');
     const router = useRouter();
     const { userId } = router.query;
   

@@ -3,10 +3,14 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Link from 'next/link'
+import { useState } from 'react'
+import { useRouter } from 'next/router'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const [member, setMember] = useState('');
+  const router = useRouter();
   return (
     <>
       <Head>
@@ -52,6 +56,19 @@ export default function Home() {
         </div>
         <div>
           <Link href="/members/1">Check out member 1</Link>
+        </div>
+        <div>
+          <input
+            value={member}
+            onChange={e => setMember(e.target.value)}
+          />
+          <button
+            onClick={() => router.push(`/members/${member}`)}
+          > navigate to member</button>
+          
+        </div>
+        <div>
+          <Link href={`/members/${member}`} >Link to member {member}</Link>
         </div>
         <div>
           <h2>MY_TEST_VAR is {process.env.NEXT_PUBLIC_MY_TEST_VAR}</h2>
