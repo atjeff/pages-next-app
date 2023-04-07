@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
+import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -48,6 +49,12 @@ export default function Home() {
             height={37}
             priority
           />
+        </div>
+        <div>
+          <Link href="/members/1">Check out member 1</Link>
+        </div>
+        <div>
+          <h2>MY_TEST_VAR is {process.env.NEXT_PUBLIC_MY_TEST_VAR}</h2>
         </div>
 
         <div className={styles.grid}>
